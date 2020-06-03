@@ -23,11 +23,8 @@ class _Login extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('GOUKODI')
-      ),
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(40),
         child: ListView(
           children: <Widget>[
             Container(
@@ -96,7 +93,10 @@ class _Login extends State<Login> {
                 color: Colors.blue,
                 child: Text('Se Connecter'),
                 onPressed: () {
-                  login(usernameController.text, passwordController.text);
+                  login(
+                    usernameController.text, 
+                    passwordController.text
+                  );
                 },
               ),
             )

@@ -6,7 +6,7 @@ class Interceptor implements InterceptorContract {
   Future<RequestData> interceptRequest({RequestData data}) async {
 
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    var token=preferences.getString("token");
+    var token = preferences.getString("token");
     data.headers['Authorization'] =  'Bearer $token';
     print(data.headers);
     return data;
