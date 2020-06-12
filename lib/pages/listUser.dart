@@ -63,13 +63,13 @@ var userService =new UserService()
                           borderRadius: BorderRadius.circular(50),
                           child:(snapshot.data[id].image!= null)? Image.memory(base64.decode(snapshot.data[id].image),height: 100,width: 100,fit: BoxFit.cover,) : Image.asset("assets/depot.png"))
                       ),
-                      title: Text(snapshot.data[id].prenom+" "+snapshot.data[id].nom,
+                      title: Text(snapshot.data[id].username,
                           style: GoogleFonts.openSans(
                               textStyle: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600))),
-                      subtitle: Text(snapshot.data[id].roles,
+                      subtitle: Text(snapshot.data[id].profils,
                           style: GoogleFonts.openSans(
                               textStyle: TextStyle(
                                   color: Colors.grey,

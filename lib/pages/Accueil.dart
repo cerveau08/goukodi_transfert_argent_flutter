@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:goukodi_transfert_flutter/pages/CreateComptePartenaire.dart';
 import 'package:goukodi_transfert_flutter/pages/createUser.dart';
 import 'package:goukodi_transfert_flutter/pages/listUser.dart';
 
@@ -33,7 +34,7 @@ class _AccueilState extends State<Accueil> {
       subtitle: "creer comptes partenaire",
       event: "",
       img: "assets/partner.png",
-      route: StepperView()
+      route: CreateComptePartenaire()
   );
   final Items item4 = new Items(
     title: "Faire Dépot",
@@ -58,9 +59,9 @@ class _AccueilState extends State<Accueil> {
       myList = [item1, item2, item3, item4];
     }if(this.widget.role=="ROLE_CAISSIER"){
       myList = [item4];
-    }if(this.widget.role=="ROLE_PARTENAIRE" || this.widget.role=="ROLE_PADMIN"){
+    }if(this.widget.role=="ROLE_PARTENAIRE" || this.widget.role=="ROLE_ADMIN_PARTENAIRE"){
       myList = [item5,item6];
-    }if(this.widget.role=="ROLE_PUSER"){
+    }if(this.widget.role=="ROLE_CAISSIER_PARTENAIRE"){
       myList = [item6];
     }
   }

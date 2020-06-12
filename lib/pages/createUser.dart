@@ -47,36 +47,12 @@ class _CreateUserState extends State<CreateUser> {
                     alignment: Alignment.center,
                     padding: EdgeInsets.all(8),
                     child: Text(
-                      'KAYPAY',
+                      'GOUKODI',
                       style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.w500,
                           fontSize: 30),
                     )),
-                Container(
-                  padding: EdgeInsets.all(8),
-                  child: TextField(
-                    controller: prenomController,
-
-                    decoration: InputDecoration(
-                     icon: Icon(Icons.account_circle,color: Colors.blue),
-                      hintText: 'Prenom',
-                      labelText: 'Prenom'
-
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(8),
-                  child: TextField(
-                    controller: nomController,
-                    decoration: InputDecoration(
-                      icon: Icon(Icons.bubble_chart,color: Colors.blue),
-                      labelText: 'Nom',
-                      hintText: 'Nom'
-                    ),
-                  ),
-                ),
                 Container(
                   padding: EdgeInsets.all(8),
                   child: TextField(
@@ -158,7 +134,7 @@ class _CreateUserState extends State<CreateUser> {
 
   void getRoles() async {
 
-    String url = "http://10.0.2.2:8000/api/roles";
+    String url = "http://10.0.2.2:8000/api/profils";
 
     var res = await HttpWithInterceptor.build(
         interceptors: [ Interceptor() ])
@@ -178,12 +154,10 @@ class _CreateUserState extends State<CreateUser> {
 
   void createUsers() async {
    var  user={
-      "prenom":prenomController.text,
-      "nom":nomController.text,
       "username":usernameController.text,
       "password":passwordController.text,
       "email":emailController.text,
-      "role":"api/roles/"+selected.toString()
+      "profil":"api/profils/"+selected.toString()
     };
    print(user);
   var res= this.userService.createUser(json.encode(user));

@@ -103,7 +103,7 @@ class _HomeState extends State<Home> {
             )
           ),
           (role != null)?
-          Accueil(role): Text('Chargement')
+          Accueil(role): Text('Chargement' ),
         ],
       ),
     );
@@ -111,9 +111,10 @@ class _HomeState extends State<Home> {
 
   void  getCurrentUser() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    var id = prefs.getInt("id");
-    var role = prefs.getString('role');
-    String url = "http://10.0.2.2:8000/api/users/"+id.toString();
+    var profil = prefs.getString('role');
+    String url = "http://10.0.2.2:8000/api/users/".toString();
+
+    print(profil);
 
     var res = await HttpWithInterceptor.build(
         interceptors: [ Interceptor() ])
@@ -121,11 +122,9 @@ class _HomeState extends State<Home> {
     var user = json.decode(res.body);
     setState(() {
       //this.image=user['image'];
-      currentUser=new User(user["email"], user["password"], user['username'], user["roles"][0],user["imageProfil"],user["isActive"],user["id"]);
      // this.username=user["prenom"] + " "+ user["nom"];
-      this.role=prefs.getString('role');
+      this.role = prefs.getString('role');
 
     });
-    print(currentUser.roles);
   }
 }

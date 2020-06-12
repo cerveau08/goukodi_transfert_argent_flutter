@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/models/partenaire.dart';
-import 'package:flutter_app/models/depot.dart';
+import 'package:goukodi_transfert_flutter/models/depot.dart';
+import 'package:goukodi_transfert_flutter/models/partenaire.dart';
+
 
 class CreateComptePartenaire extends StatefulWidget {
   CreateComptePartenaire() : super();
@@ -18,8 +19,8 @@ class _CreateComptePartenaire extends State<CreateComptePartenaire> {
   int current_step = 0;
 
 
- static Partner partner=new Partner();
- static Depot depot =new Depot();
+ static Partenaire partenaire=new Partenaire();
+ static Depot depot = new Depot();
   List<Step> steps = [
     Step(
       title: Text('Infos Partenaire'),
@@ -33,8 +34,8 @@ class _CreateComptePartenaire extends State<CreateComptePartenaire> {
                 icon: Icon(Icons.radio_button_unchecked,color: Colors.blue),
               ),
               onChanged: (val){
-                partner.ninea=val;
-                print(partner.ninea);
+                partenaire.ninea=val;
+                print(partenaire.ninea);
               },
             ),
           ),
@@ -46,8 +47,50 @@ class _CreateComptePartenaire extends State<CreateComptePartenaire> {
                 icon: Icon(Icons.nature,color: Colors.blue),
               ),
               onChanged: (va){
-               partner.rc=va;
+               partenaire.registreCommercial=va;
               },
+
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: "Prenom et Nom",
+                icon: Icon(Icons.account_box,color: Colors.blue),
+              ),
+                onChanged: (va){
+                  partenaire.nomComplet=va;
+                }
+              ,
+
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: "Telephone",
+                icon: Icon(Icons.account_box,color: Colors.blue),
+              ),
+                onChanged: (va){
+                  partenaire.telephone=va;
+                }
+              ,
+
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: "Adresse",
+                icon: Icon(Icons.account_box,color: Colors.blue),
+              ),
+                onChanged: (va){
+                  partenaire.adresse=va;
+                }
+              ,
 
             ),
           ),
@@ -59,29 +102,16 @@ class _CreateComptePartenaire extends State<CreateComptePartenaire> {
       title: Text('Infos User'),
       content:  Column(
         children: <Widget>[
+          
           Container(
             margin: EdgeInsets.all(10),
             child: TextField(
               decoration: InputDecoration(
-                labelText: "Prenom",
-                icon: Icon(Icons.account_box,color: Colors.blue),
-              ),
-                onChanged: (va){
-                  partner.users.prenom=va;
-                }
-              ,
-
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(10),
-            child: TextField(
-              decoration: InputDecoration(
-                labelText: "Nom",
+                labelText: "Username",
                 icon: Icon(Icons.bubble_chart,color: Colors.blue),
               ),
                 onChanged: (va){
-                  partner.users.nom=va;
+                  partenaire.userComptePartenaire.username=va;
                 }
             ),
           ),
@@ -93,19 +123,7 @@ class _CreateComptePartenaire extends State<CreateComptePartenaire> {
                 icon: Icon(Icons.mail,color: Colors.blue),
               ),
                 onChanged: (va){
-                  partner.users.email=va;
-                }
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(10),
-            child: TextField(
-              decoration: InputDecoration(
-                labelText: "Username",
-                icon: Icon(Icons.account_circle,color: Colors.blue),
-              ),
-                onChanged: (va){
-                  partner.users.username=va;
+                  partenaire.userComptePartenaire.email=va;
                 }
             ),
           ),
@@ -117,7 +135,7 @@ class _CreateComptePartenaire extends State<CreateComptePartenaire> {
                 icon: Icon(Icons.lock,color: Colors.blue),
               ),
                 onChanged: (va){
-                  partner.users.password=va;
+                  partenaire.userComptePartenaire.password=va;
                 }
             ),
           ),

@@ -107,7 +107,7 @@ class _Login extends State<Login> {
   }
   
   void login(String username, String password) async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     print(usernameController.text);
     print(passwordController.text);
     String url = "http://10.0.2.2:8000/api/login_check";
@@ -125,7 +125,7 @@ class _Login extends State<Login> {
     );
     if(reponse.statusCode>=200 && reponse.statusCode < 400){
       this.token = json.decode(reponse.body)['token'];
-      preferences.setString('token', this.token);
+      prefs.setString('token', this.token);
 
       // decodage token
       final String token = this.token;
@@ -134,14 +134,17 @@ class _Login extends State<Login> {
       final String decoded = B64urlEncRfc7515.decodeUtf8(payload);
 
       var tok = json.decode(decoded);
-      preferences.setString('role', tok["roles"][0]);
-      preferences.setInt('id', tok["id"]);
+      prefs.setString('role', tok["roles"][0]);
+      var profil = prefs.getString('role');
+      print(profil);
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => Home()
         )
       );
+      print(profil);
+
     }else{
       error = json.decode(reponse.body)['message'];
       print(error);

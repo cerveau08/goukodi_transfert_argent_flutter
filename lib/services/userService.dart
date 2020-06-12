@@ -19,11 +19,6 @@ class UserService{
      return  await HttpWithInterceptor.build(
         interceptors: [ Interceptor() ])
         .post(url,body:user,headers: headers);
-
-
-
-
-
   }
   getUsers() async{
     String url = "http://10.0.2.2:8000/api/users";
@@ -35,9 +30,8 @@ class UserService{
 
 var user= usera["hydra:member"];
     List<User> users =[];
-
     for(var u in user){
-      User mesuser=new User(u["email"], u["password"], u['username'], u["roles"][0],u["image"],u["isActive"],u["id"]);
+      User mesuser = new User(u["email"], u["password"], u['username'], u["profil"][0],u["isActive"],u["id"]);
       users.add(mesuser);
     }
     return users;
@@ -49,14 +43,7 @@ var user= usera["hydra:member"];
     var res= await HttpWithInterceptor.build(
         interceptors: [ Interceptor() ])
         .put(url,body:json.encode(body),headers: headers);
-
-
-
-
     print(res.body);
-
-
   }
-
   }
 
