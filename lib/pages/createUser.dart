@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:goukodi_transfert_flutter/helpers/interceptor.dart';
 import 'package:goukodi_transfert_flutter/models/user.dart';
+import 'package:goukodi_transfert_flutter/pages/home.dart';
 import 'package:goukodi_transfert_flutter/services/userService.dart';
 import 'package:http_interceptor/http_with_interceptor.dart';
 
@@ -77,7 +78,6 @@ class _CreateUserState extends State<CreateUser> {
                 Container(
                   padding: EdgeInsets.all(8),
                   child: TextField(
-                    obscureText: true,
                     controller: emailController,
                     decoration: InputDecoration(
                       icon: Icon(Icons.mail,color: Colors.blue),
@@ -140,8 +140,9 @@ class _CreateUserState extends State<CreateUser> {
         interceptors: [ Interceptor() ])
         .get(url);
 
-    print(res.body);
+    //print(res.body);
     var role = json.decode(res.body);
+    print(role);
     print(role["hydra:member"]);
 
 
@@ -161,6 +162,13 @@ class _CreateUserState extends State<CreateUser> {
     };
    print(user);
   var res= this.userService.createUser(json.encode(user));
+
+  Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Home()
+        )
+      );
 
    print(res);
   }

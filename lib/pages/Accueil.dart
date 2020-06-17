@@ -16,7 +16,6 @@ class _AccueilState extends State<Accueil> {
   List<Items> myList=[];
   final Items item1 = new Items(
       title: "Creation de users",
-      subtitle: "Creer vos utilisateurs",
       event: "",
       img: "assets/adduser.png",
       route : CreateUser())
@@ -24,33 +23,28 @@ class _AccueilState extends State<Accueil> {
 
   final Items item2 = new Items(
       title: "Gestion users",
-      subtitle: "Listez ,Bloquer ou modifier vos users",
       event: "",
       img: "assets/modiuser.png",
       route : listUsers()
   );
   final Items item3 = new Items(
       title: "Creer Compte ",
-      subtitle: "creer comptes partenaire",
       event: "",
       img: "assets/partner.png",
       route: CreateComptePartenaire()
   );
   final Items item4 = new Items(
     title: "Faire Dépot",
-    subtitle: "Déposer de l'argent pour un compte",
     event: "",
     img: "assets/depot.png",
   );
   final  Items item5 = new Items(
     title: "Affectation Comptes",
-    subtitle: "Affecter vos Comptes à vos user",
     event: "",
     img: "assets/modiuser.png",
   );
   final Items item6 = new Items(
     title: "Transaction",
-    subtitle: "Envoyer de l'argent ou retirer",
     event: "",
     img: "assets/depot.png",
   );
@@ -84,8 +78,8 @@ class _AccueilState extends State<Accueil> {
           childAspectRatio: 1.0,
           padding: EdgeInsets.only(left: 16, right: 16),
           crossAxisCount: 2,
-          crossAxisSpacing: 18,
-          mainAxisSpacing: 18,
+          crossAxisSpacing: 20,
+          mainAxisSpacing: 20,
           children:
           myList.map((data) {
             return new GestureDetector(
@@ -98,39 +92,38 @@ class _AccueilState extends State<Accueil> {
                 child:
                 Container(
                   decoration: BoxDecoration(
-                      color: Colors.white60, borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.black12)),
+                    color: Colors.greenAccent, borderRadius: BorderRadius.circular(18),
+                    border: Border.all(color: Colors.black12),
+                    
+                  ),
+                  
+                  height: 120,
+                  margin: EdgeInsets.all(10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    
                     children: <Widget>[
+                      SizedBox(
+                        height: 15,
+                      ),
                       Image.asset(
                         data.img,
-                        width: 60,
+                        width: 70,
                       ),
                       SizedBox(
-                        height: 14,
+                        height: 15,
                       ),
                       Text(
                         data.title,
                         style: GoogleFonts.openSans(
                             textStyle: TextStyle(
                                 color: Colors.blue,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600)),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600
+                            )),
                       ),
                       SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        data.subtitle,
-                        style: GoogleFonts.openSans(
-                            textStyle: TextStyle(
-                                color: Colors.black38,
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600)),
-                      ),
-                      SizedBox(
-                        height: 14,
+                        height: 3,
                       ),
                       Text(
                         data.event,
@@ -138,7 +131,7 @@ class _AccueilState extends State<Accueil> {
                             textStyle: TextStyle(
                                 color: Colors.black38,
                                 fontSize: 11,
-                                fontWeight: FontWeight.w600)),
+                                fontWeight: FontWeight.w400)),
                       ),
                     ],
                   ),
@@ -151,9 +144,8 @@ class _AccueilState extends State<Accueil> {
 
 class Items {
   String title;
-  String subtitle;
   String event;
   String img;
   var route ;
-  Items({this.title, this.subtitle, this.event, this.img,this.route});
+  Items({this.title, this.event, this.img,this.route});
 }

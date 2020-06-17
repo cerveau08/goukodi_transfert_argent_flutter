@@ -34,30 +34,31 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.exit_to_app),
+            icon: Icon(Icons.exit_to_app, color: Colors.red,),
             onPressed: () {
               Navigator.pop(context);
             }
           )
         ],
-        backgroundColor: Colors.greenAccent,
+        backgroundColor: Colors.white,
         elevation: 50.0,
-        leading: Icon(Icons.menu),
+        leading: Icon(Icons.menu, color: Colors.black),
       ),
       body:  Column(
+        
         children: <Widget>[
+          
           Container(
             
+            margin: EdgeInsets.all(20),
               child:Column(
                 children: <Widget>[
-                  Padding(
-                  padding: const EdgeInsets.only(left: 40.0, top: 20)),
-                  RaisedButton(
-                    child: Text('GOUKODY'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    }
-                  )
+                  Center(
+                    child: Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Image.asset("assets/logoGOUKODY.png"),
+                    ),
+                  ),
                 ],
               )
             
