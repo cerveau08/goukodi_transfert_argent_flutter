@@ -46,13 +46,13 @@ class _AccueilState extends State<Accueil> {
     title: "Affectation Comptes",
     subtitle: "Affecter vos Comptes à vos user",
     event: "",
-    img: "assets/todo.png",
+    img: "assets/modiuser.png",
   );
   final Items item6 = new Items(
     title: "Transaction",
     subtitle: "Envoyer de l'argent ou retirer",
     event: "",
-    img: "assets/setting.png",
+    img: "assets/depot.png",
   );
   getItems(){
     if(this.widget.role=="ROLE_ADMIN_SYSTEM" || this.widget.role=="ROLE_ADMIN"){
