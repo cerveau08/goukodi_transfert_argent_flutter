@@ -53,6 +53,14 @@ flutter:
     - assets/partner.png
     - assets/depot.png
     - assets/logoGOUKODY.png
+    - assets/depot.jpeg
+    - assets/envoi.jpeg
+    - assets/historique.jpeg
+    - assets/partenaire.jpeg
+    - assets/parts.jpeg
+    - assets/rapport.jpeg
+    - assets/retrait.jpeg
+    - assets/users.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

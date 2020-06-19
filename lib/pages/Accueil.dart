@@ -15,9 +15,9 @@ class _AccueilState extends State<Accueil> {
 
   List<Items> myList=[];
   final Items item1 = new Items(
-      title: "Creation de users",
+      title: "Creation d'un Utilisateur",
       event: "",
-      img: "assets/adduser.png",
+      img: "assets/users.png",
       route : CreateUser())
   ;
 
@@ -28,15 +28,15 @@ class _AccueilState extends State<Accueil> {
       route : listUsers()
   );
   final Items item3 = new Items(
-      title: "Creer Compte ",
+      title: "Creation d'un Compte Partenaire",
       event: "",
-      img: "assets/partner.png",
+      img: "assets/partenaire.jpeg",
       route: CreateComptePartenaire()
   );
   final Items item4 = new Items(
     title: "Faire Dépot",
     event: "",
-    img: "assets/depot.png",
+    img: "assets/depot.jpeg",
   );
   final  Items item5 = new Items(
     title: "Affectation Comptes",
@@ -44,19 +44,39 @@ class _AccueilState extends State<Accueil> {
     img: "assets/modiuser.png",
   );
   final Items item6 = new Items(
-    title: "Transaction",
+    title: "Faire Un Transfert D'argent",
     event: "",
-    img: "assets/depot.png",
+    img: "assets/envoi.jpeg",
+  );
+  final Items item7 = new Items(
+    title: "Faire Un Retrait d'Argent",
+    event: "",
+    img: "assets/retrait.jpeg",
+  );
+  final Items item8 = new Items(
+    title: "Historique",
+    event: "",
+    img: "assets/historique.jpeg",
+  );
+  final Items item9 = new Items(
+    title: "Rapport des Transactions",
+    event: "",
+    img: "assets/rapport.jpeg",
+  );
+  final Items item10 = new Items(
+    title: "Attribution des parts",
+    event: "",
+    img: "assets/parts.jpeg",
   );
   getItems(){
     if(this.widget.role=="ROLE_ADMIN_SYSTEM" || this.widget.role=="ROLE_ADMIN"){
-      myList = [item1, item2, item3, item4];
+      myList = [item1, item3,item4, item10];
     }if(this.widget.role=="ROLE_CAISSIER"){
       myList = [item4];
     }if(this.widget.role=="ROLE_PARTENAIRE" || this.widget.role=="ROLE_ADMIN_PARTENAIRE"){
-      myList = [item5,item6];
+      myList = [item5, item6, item7, item8];
     }if(this.widget.role=="ROLE_CAISSIER_PARTENAIRE"){
-      myList = [item6];
+      myList = [item6, item7, item9, item8];
     }
   }
   
@@ -72,6 +92,7 @@ class _AccueilState extends State<Accueil> {
     var color = 0xff453658;
 
     return Flexible(
+      
       child:
       (myList!=[])?
       GridView.count(
@@ -94,7 +115,6 @@ class _AccueilState extends State<Accueil> {
                   decoration: BoxDecoration(
                     color: Colors.greenAccent, borderRadius: BorderRadius.circular(18),
                     border: Border.all(color: Colors.black12),
-                    
                   ),
                   
                   height: 120,
