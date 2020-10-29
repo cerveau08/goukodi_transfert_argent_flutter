@@ -15,7 +15,7 @@ class _AccueilState extends State<Accueil> {
 
   List<Items> myList=[];
   final Items item1 = new Items(
-      title: "Creation d'un Utilisateur",
+      title: "Creer User",
       event: "",
       img: "assets/users.png",
       route : CreateUser())
@@ -28,7 +28,7 @@ class _AccueilState extends State<Accueil> {
       route : listUsers()
   );
   final Items item3 = new Items(
-      title: "Creation d'un Compte Partenaire",
+      title: "Creation d'un Compte",
       event: "",
       img: "assets/partenaire.jpeg",
       route: CreateComptePartenaire()
@@ -136,11 +136,12 @@ class _AccueilState extends State<Accueil> {
                       Text(
                         data.title,
                         style: GoogleFonts.openSans(
-                            textStyle: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600
-                            )),
+                          textStyle: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600
+                          )
+                        ),
                       ),
                       SizedBox(
                         height: 3,
@@ -148,17 +149,19 @@ class _AccueilState extends State<Accueil> {
                       Text(
                         data.event,
                         style: GoogleFonts.openSans(
-                            textStyle: TextStyle(
-                                color: Colors.black38,
-                                fontSize: 11,
-                                fontWeight: FontWeight.w400)),
+                          textStyle: TextStyle(
+                            color: Colors.black38,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w400
+                          )
+                        ),
                       ),
                     ],
                   ),
                 ));
           }).toList())
             :null );
-     }
+  }
   }
 
 

@@ -144,8 +144,7 @@ class _CreateUserState extends State<CreateUser> {
     var role = json.decode(res.body);
     print(role);
     print(role["hydra:member"]);
-
-
+    
     setState(() {
       this.roles=role["hydra:member"];
 
@@ -170,7 +169,7 @@ class _CreateUserState extends State<CreateUser> {
         )
       );
 
-   print(res);
+    print(res);
   }
 
 }

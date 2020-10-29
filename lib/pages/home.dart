@@ -42,7 +42,6 @@ class _HomeState extends State<Home> {
           )
         ],
         backgroundColor: Colors.white,
-        elevation: 50.0,
         leading: Icon(Icons.menu, color: Colors.black),
       ),
       body:  Column(

@@ -43,7 +43,7 @@ class _Login extends State<Login> {
               alignment: Alignment.center,
               padding: EdgeInsets.all(10),
               child: (error == null)?
-              Text(
+              Text( 
                 "Connectez-vous",
                 style: GoogleFonts.openSans(
                   textStyle: TextStyle(

@@ -16,19 +16,19 @@ class UserService{
   createUser(user) async{
     String url = "http://10.0.2.2:8000/api/users";
 
-     return  await HttpWithInterceptor.build(
+      return  await HttpWithInterceptor.build(
         interceptors: [ Interceptor() ])
         .post(url,body:user,headers: headers);
   }
   getUsers() async{
     String url = "http://10.0.2.2:8000/api/users";
 
-   var res= await HttpWithInterceptor.build(
+  var res= await HttpWithInterceptor.build(
         interceptors: [ Interceptor() ])
         .get(url);
     var usera = json.decode(res.body);
 
-var user= usera["hydra:member"];
+var user = usera["hydra:member"];
     List<User> users =[];
     for(var u in user){
       User mesuser = new User(u["email"], u["password"], u['username'], u["profil"][0],u["isActive"],u["id"]);

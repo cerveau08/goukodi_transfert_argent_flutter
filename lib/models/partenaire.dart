@@ -1,12 +1,28 @@
 import 'package:goukodi_transfert_flutter/models/user.dart';
 
-class Partenaire {
+class Partenaire{
   String ninea;
   String registreCommercial;
+  String adresse;
   String nomComplet;
   String telephone;
-  String adresse;
   User userComptePartenaire;
 
-  Partenaire({this.ninea, this.registreCommercial, this.nomComplet, this.telephone, this.adresse, this.userComptePartenaire});
+  Partenaire({this.ninea,this.registreCommercial, this.adresse, this.nomComplet, this.telephone,this.userComptePartenaire});
+
+  Map<String , dynamic> toJson()=>
+      {
+        'partenaire': {
+          'registreCommercial': registreCommercial,
+          'ninea': ninea,
+          'nomComplet': nomComplet,
+          'adresse': adresse,
+          'telephone': telephone,
+          'userComptePartenaire': {
+            "username":userComptePartenaire.username,
+            "password":userComptePartenaire.password,
+            "email":userComptePartenaire.email,
+          }
+        }
+      };
 }
